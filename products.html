@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Botswana Styles - Our Products</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="Browse our premium collection of traditional and modern African wear, accessories, and quality clothing from Botswana.">
+</head>
+<body>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading Botswana Styles...</p>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-gem"></i> Botswana Styles</h1>
+                    <span class="tagline">Authentic African Fashion</span>
+                </div>
+                                
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="products.html" class="nav-link active">Products</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                        <li><a href="admin.html" class="nav-link">Admin</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="cart-btn" onclick="toggleCart()" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="nav-mobile" id="nav-mobile">
+                <ul>
+                    <li><a href="index.html" class="nav-link" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="products.html" class="nav-link" onclick="closeMobileMenu()">Products</a></li>
+                    <li><a href="about.html" class="nav-link" onclick="closeMobileMenu()">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" onclick="closeMobileMenu()">Contact</a></li>
+                    <li><a href="feedback.html" class="nav-link" onclick="closeMobileMenu()">Feedback</a></li>
+                    <li><a href="admin.html" class="nav-link" onclick="closeMobileMenu()">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-header">
+                    <h3>Filter Products</h3>
+                    <div class="filter-controls">
+                        <select id="categoryFilter" onchange="filterProducts()" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="clothing">Traditional Clothing</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="modern">Modern Wear</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="view-btn active" onclick="toggleView('grid')" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" onclick="toggleView('list')" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="product-section">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Our Complete Collection</h3>
+                    <p>Explore all authentic Botswana fashion pieces.</p>
+                </div>
+                                
+                <div class="product-grid" id="product-list">
+                    </div>
+
+                <div class="loading-products" id="loading-products" style="display: none;">
+                    <div class="loading-spinner-small"></div>
+                    <p>Loading products...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cart-section" id="cart-section">
+            <div class="cart-overlay" onclick="toggleCart()"></div>
+            <div class="cart-sidebar">
+                <div class="cart-header">
+                    <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+                    <button class="close-cart" onclick="toggleCart()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                                
+                <div class="cart-content">
+                    <div class="cart-items" id="cart-items">
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Your cart is empty</p>
+                            <button onclick="toggleCart()" class="continue-shopping">Continue Shopping</button>
+                        </div>
+                    </div>
+                                        <div class="cart-footer" id="cart-footer" style="display: none;">
+                        <div class="cart-total">
+                            <span>Total: P<span id="cart-total">0.00</span></span>
+                        </div>
+                        <button class="checkout-btn" onclick="showCheckout()">
+                            <i class="fas fa-credit-card"></i> Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkout-section" id="checkout-section">
+            <div class="checkout-overlay" onclick="hideCheckout()"></div>
+            <div class="checkout-modal">
+                <div class="checkout-header">
+                    <h3><i class="fas fa-credit-card"></i> Checkout</h3>
+                    <button class="close-checkout" onclick="hideCheckout()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                                
+                <div class="checkout-content">
+                    <form id="checkout-form" onsubmit="submitOrder(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required />
+                        </div>
+                                                <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                        </div>
+                                                <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+267 XX XXX XXX" required />
+                        </div>
+                                                <div class="form-group">
+                            <label for="address">Delivery Address *</label>
+                            <textarea id="address" name="address" placeholder="Enter your complete delivery address" required></textarea>
+                        </div>
+                                                <div class="form-group">
+                            <label for="paymentMethod">Payment Method *</label>
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="">Select Payment Method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="mobile">Mobile Money (Orange/Mascom)</option>
+                                <option value="bank">Bank Transfer</option>
+                            </select>
+                        </div>
+                                                <div class="order-summary">
+                            <h4>Order Summary</h4>
+                            <div id="checkout-items"></div>
+                            <div class="total-row">
+                                <span>Total: P<span id="checkout-total">0.00</span></span>
+                            </div>
+                        </div>
+                                                <button type="submit" class="pay-btn">
+                            <i class="fas fa-lock"></i> Place Order - P<span id="final-total">0.00</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Botswana Styles</h4>
+                    <p>Bringing you authentic African fashion with modern elegance. Celebrating the rich heritage of Botswana through premium quality clothing and accessories.</p>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+                        <div class="footer-bottom">
+                <p>&copy; 2025 Botswana Styles. All rights reserved. | Made with <i class="fas fa-heart"></i> in Botswana</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <i class="fas fa-check-circle"></i>
+                <h3>Success!</h3>
+            </div>
+            <div class="modal-body">
+                <p id="success-message">Your action was completed successfully!</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('success-modal')" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="error-modal">
+        <div class="modal-content">
+            <div class="modal-header error">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Error</h3>
+            </div>
+            <div class="modal-body">
+                <p id="error-message">An error occurred. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('error-modal')" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Highlight active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            // Call renderProducts and filterProducts for the product page
+            renderProducts();
+            filterProducts();
+        });
+    </script>
+</body>
+</html>

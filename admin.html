@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botswana Styles - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <div class="container">
+            <div class="admin-nav">
+                <div class="logo">
+                    <h1><i class="fas fa-gem"></i> Botswana Styles Admin</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Back to Store</a></li>
+                        <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <!-- Admin Login Form -->
+            <div class="admin-login" id="admin-login">
+                <div class="login-card">
+                    <div class="login-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h2>Admin Access</h2>
+                        <p>Please enter your credentials to continue</p>
+                    </div>
+                    
+                    <form onsubmit="adminLogin(event)">
+                        <div class="form-group">
+                            <label for="admin-username">Username</label>
+                            <input type="text" id="admin-username" placeholder="Enter username" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="admin-password">Password</label>
+                            <input type="password" id="admin-password" placeholder="Enter password" required>
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </form>
+                    
+                    <div class="login-help">
+                        <p>Demo credentials: admin / admin123</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Dashboard -->
+            <div class="admin-dashboard" id="admin-dashboard" style="display: none;">
+                <!-- Dashboard Stats -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-orders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-products">14</h3>
+                            <p>Products</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>P<span id="total-revenue">0</span></h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-customers">0</h3>
+                            <p>Customers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Tabs -->
+                <div class="admin-tabs">
+                    <button class="tab-btn active" onclick="showTab('orders')">
+                        <i class="fas fa-list"></i> Orders
+                    </button>
+                    <button class="tab-btn" onclick="showTab('products')">
+                        <i class="fas fa-box"></i> Products
+                    </button>
+                    <button class="tab-btn" onclick="showTab('customers')">
+                        <i class="fas fa-users"></i> Customers
+                    </button>
+                    <button class="tab-btn" onclick="showTab('settings')">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                </div>
+
+                <!-- Orders Tab -->
+                <div class="tab-content" id="orders-tab">
+                    <div class="tab-header">
+                        <h3><i class="fas fa-list"></i> Recent Orders</h3>
+                        <button class="refresh-btn" onclick="refreshOrders()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                    
+                    <div class="orders-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-list">
+                                <tr class="empty-state">
+                                    <td colspan="7">
+                                        <div class="empty-message">
+                                            <i class="fas fa-inbox"></i>
+                                            <p>No orders found</p>
+                                            <small>Orders will appear here when customers make purchases</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Products Tab -->
+                <div class="tab-content" id="products-tab" style="display: none;">
+                    <div class="tab-header">
+                        <h3><i class="fas fa-box"></i> Product Management</h3>
+                        <button class="add-btn" onclick="showAddProduct()">
+                            <i class="fas fa-plus"></i> Add Product
+                        </button>
+                    </div>
+                    
+                    <div class="products-grid" id="admin-products-list">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Customers Tab -->
+                <div class="tab-content" id="customers-tab" style="display: none;">
+                    <div class="tab-header">
+                        <h3><i class="fas fa-users"></i> Customer Management</h3>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search customers..." onkeyup="searchCustomers(this.value)">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="customers-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Orders</th>
+                                    <th>Total Spent</th>
+                                    <th>Last Order</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customers-list">
+                                <tr class="empty-state">
+                                    <td colspan="6">
+                                        <div class="empty-message">
+                                            <i class="fas fa-users"></i>
+                                            <p>No customers found</p>
+                                            <small>Customer data will appear here after orders are placed</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div class="tab-content" id="settings-tab" style="display: none;">
+                    <div class="tab-header">
+                        <h3><i class="fas fa-cog"></i> Store Settings</h3>
+                    </div>
+                    
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h4><i class="fas fa-store"></i> Store Information</h4>
+                            <form onsubmit="updateStoreInfo(event)">
+                                <div class="form-group">
+                                    <label>Store Name</label>
+                                    <input type="text" value="Botswana Styles" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" value="info@botswanastyles.co.bw" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" value="+267 71234567" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <textarea required>Gaborone, Botswana</textarea>
+                                </div>
+                                <button type="submit" class="save-btn">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h4><i class="fas fa-truck"></i> Shipping Settings</h4>
+                            <form onsubmit="updateShippingSettings(event)">
+                                <div class="form-group">
+                                    <label>Free Shipping Threshold (P)</label>
+                                    <input type="number" value="500" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Standard Shipping Cost (P)</label>
+                                    <input type="number" value="50" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Express Shipping Cost (P)</label>
+                                    <input type="number" value="100" min="0" required>
+                                </div>
+                                <button type="submit" class="save-btn">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h4><i class="fas fa-palette"></i> Site Appearance</h4>
+                            <form onsubmit="updateAppearance(event)">
+                                <div class="form-group">
+                                    <label>Primary Color</label>
+                                    <input type="color" value="#03045E" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Secondary Color</label>
+                                    <input type="color" value="#FFFFFF" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Logo Upload</label>
+                                    <input type="file" accept="image/*">
+                                </div>
+                                <button type="submit" class="save-btn">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Product Modal -->
+    <div class="modal" id="add-product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus"></i> Add New Product</h3>
+                <button onclick="closeModal('add-product-modal')" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="addProduct(event)">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (P)</label>
+                        <input type="number" name="price" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="clothing">Traditional Clothing</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="modern">Modern Wear</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" name="image" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="closeModal('add-product-modal')" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

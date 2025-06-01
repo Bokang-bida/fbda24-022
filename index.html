@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Botswana Styles - Authentic African Fashion</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="Discover authentic Botswana fashion with traditional and modern African wear, accessories, and premium quality clothing from the heart of Botswana.">
+</head>
+<body>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading Botswana Styles...</p>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-gem"></i> Botswana Styles</h1>
+                    <span class="tagline">Authentic African Fashion</span>
+                </div>
+                                
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                        <li><a href="admin.html" class="nav-link">Admin</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="cart-btn" onclick="toggleCart()" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="nav-mobile" id="nav-mobile">
+                <ul>
+                    <li><a href="index.html" class="nav-link" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="products.html" class="nav-link" onclick="closeMobileMenu()">Products</a></li>
+                    <li><a href="about.html" class="nav-link" onclick="closeMobileMenu()">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" onclick="closeMobileMenu()">Contact</a></li>
+                    <li><a href="feedback.html" class="nav-link" onclick="closeMobileMenu()">Feedback</a></li>
+                    <li><a href="admin.html" class="nav-link" onclick="closeMobileMenu()">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Embrace the Spirit of Botswana in Every Stitch</h2>
+                    <p>Discover timeless elegance and vibrant heritage with our handcrafted African fashion. Quality, authenticity, and style delivered to your doorstep.</p>
+                    <button class="cta-btn" onclick="window.location.href='products.html'">
+                        <i class="fas fa-arrow-right"></i> Explore Collections
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero.jpg" alt="Traditional Botswana Fashion" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Why Choose Botswana Styles?</h3>
+                    <p>Experience the difference that passion, quality, and heritage make.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h4>Authenticity & Craftsmanship</h4>
+                        <p>Every piece at Botswana Styles is a testament to the rich artistic traditions of Botswana. We work directly with skilled local artisans, ensuring each garment and accessory is handcrafted with unparalleled attention to detail and a deep respect for cultural authenticity.</p>
+                        <h4>Premium Quality Materials</h4>
+                        <p>We source only the finest fabrics and materials, guaranteeing comfort, durability, and a luxurious feel. Our commitment to quality means your Botswana Styles pieces are not just fashion, but investments in timeless elegance.</p>
+                        <h4>Empowering Local Communities</h4>
+                        <p>By choosing Botswana Styles, you're directly supporting the livelihoods of talented artisans and their communities. We believe in fair trade and sustainable practices that uplift and empower, fostering economic growth and cultural preservation.</p>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+
+        <section class="product-section">
+            <div class="container">
+                <div class="section-header">
+                    <h3><i class="fas fa-fire"></i> Our Featured Products</h3>
+                    <p>Handpicked selections showcasing the best of our collection.</p>
+                </div>
+                <div class="product-grid" id="featured-product-list">
+                    </div>
+                <div class="text-center">
+                    <button class="btn-primary" onclick="window.location.href='products.html'">
+                        <i class="fas fa-arrow-right"></i> View All Products
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features content-section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Shop By Category</h3>
+                    <p>Find your perfect style across our diverse collections.</p>
+                </div>
+                <div class="features-grid category-grid">
+                    <a href="products.html?category=clothing" class="feature-card category-card">
+                        <img src="images/traditional clothing.jpg" alt="Traditional Clothing" loading="lazy">
+                        <h4>Traditional Clothing</h4>
+                        <p>Vibrant dresses, shirts, and skirts.</p>
+                    </a>
+                    <a href="products.html?category=accessories" class="feature-card category-card">
+                        <img src="images/Accessories.webp" alt="African Accessories" loading="lazy">
+                        <h4>Accessories</h4>
+                        <p>Jewelry, bags, and unique adornments.</p>
+                    </a>
+                    <a href="products.html?category=modern" class="feature-card category-card">
+                        <img src="images/Modern Wear.jpg" alt="Modern African Wear" loading="lazy">
+                        <h4>Modern Wear</h4>
+                        <p>Contemporary designs with an African touch.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Botswana Styles</h4>
+                    <p>Bringing you authentic African fashion with modern elegance. Celebrating the rich heritage of Botswana through premium quality clothing and accessories.</p>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+                        <div class="footer-bottom">
+                <p>&copy; 2025 Botswana Styles. All rights reserved. | Made with <i class="fas fa-heart"></i> in Botswana</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <i class="fas fa-check-circle"></i>
+                <h3>Success!</h3>
+            </div>
+            <div class="modal-body">
+                <p id="success-message">Your action was completed successfully!</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('success-modal')" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="error-modal">
+        <div class="modal-content">
+            <div class="modal-header error">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Error</h3>
+            </div>
+            <div class="modal-body">
+                <p id="error-message">An error occurred. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('error-modal')" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Highlight active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            renderFeaturedProducts(); // Call function to render featured products on load
+        });
+
+        function renderFeaturedProducts() {
+            const featuredProductsContainer = document.getElementById('featured-product-list');
+            if (!featuredProductsContainer) return; // Exit if not on the homepage
+
+            featuredProductsContainer.innerHTML = ''; // Clear previous content
+
+            // Get a subset of products (e.g., first 4 or randomly chosen)
+            // Ensure 'products' array is loaded from script.js
+            const productsToDisplay = products.slice(0, 4); 
+
+            if (productsToDisplay.length === 0) {
+                featuredProductsContainer.innerHTML = '<p class="text-center">No featured products to display yet.</p>';
+                return;
+            }
+
+            productsToDisplay.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image-wrapper">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDIvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';"/>
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">${product.name}</h4>
+                        <p class="product-price">P${product.price.toFixed(2)}</p>
+                        <button class="btn-primary add-to-cart-btn" onclick="addToCart(${product.id})">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+                featuredProductsContainer.appendChild(productCard);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Botswana Styles - Feedback</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="Share your feedback with Botswana Styles. Your thoughts help us improve our authentic African fashion and services.">
+</head>
+<body>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading Botswana Styles...</p>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-gem"></i> Botswana Styles</h1>
+                    <span class="tagline">Authentic African Fashion</span>
+                </div>
+                                
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="feedback.html" class="nav-link active">Feedback</a></li>
+                        <li><a href="admin.html" class="nav-link">Admin</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="cart-btn" onclick="toggleCart()" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="nav-mobile" id="nav-mobile">
+                <ul>
+                    <li><a href="index.html" class="nav-link" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="products.html" class="nav-link" onclick="closeMobileMenu()">Products</a></li>
+                    <li><a href="about.html" class="nav-link" onclick="closeMobileMenu()">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" onclick="closeMobileMenu()">Contact</a></li>
+                    <li><a href="feedback.html" class="nav-link" onclick="closeMobileMenu()">Feedback</a></li>
+                    <li><a href="admin.html" class="nav-link" onclick="closeMobileMenu()">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-small">
+            <div class="container">
+                <h2>Share Your Feedback</h2>
+                <p>We value your thoughts and suggestions to improve our services.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3><i class="fas fa-comment-dots"></i> How Can We Improve?</h3>
+                        <p>Your feedback is vital in helping us enhance your shopping experience and our product offerings. Please use the form to share your thoughts.</p>
+                        <p>Whether it's a suggestion, a compliment, or a concern, we're eager to hear from you.</p>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Direct Email</h4>
+                                <p>feedback@botswanastyles.co.bw</p>
+                            </div>
+                        </div>
+                    </div>
+                                        <div class="contact-form">
+                        <h4>Submit Your Feedback</h4>
+                        <form onsubmit="submitFeedback(event)">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name (Optional)">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email (Optional)">
+                            </div>
+                            <div class="form-group">
+                                <select>
+                                    <option value="">Select Feedback Type</option>
+                                    <option value="product">Product Suggestion</option>
+                                    <option value="service">Customer Service Experience</option>
+                                    <option value="website">Website Usability</option>
+                                    <option value="general">General Comment</option>
+                                    <option value="complaint">Complaint</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Feedback Message" rows="7" required></textarea>
+                            </div>
+                            <button type="submit" class="send-btn">
+                                <i class="fas fa-paper-plane"></i> Send Feedback
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features content-section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h3>What Our Customers Say</h3>
+                    <p>Hear from our satisfied customers!</p>
+                </div>
+                <div class="features-grid testimonials-grid">
+                    <div class="feature-card testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Absolutely love my Tswana dress! The quality is superb and the patterns are so authentic. Will definitely shop here again."</p>
+                        <h4>- Thato M.</h4>
+                    </div>
+                    <div class="feature-card testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Botswana Styles truly brings the essence of African fashion. The customer service was excellent and delivery was prompt."</p>
+                        <h4>- Lerato S.</h4>
+                    </div>
+                    <div class="feature-card testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Found the perfect gift here! The accessories are unique and beautifully made. Highly recommend!"</p>
+                        <h4>- Gofaone K.</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Botswana Styles</h4>
+                    <p>Bringing you authentic African fashion with modern elegance. Celebrating the rich heritage of Botswana through premium quality clothing and accessories.</p>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+                        <div class="footer-bottom">
+                <p>&copy; 2025 Botswana Styles. All rights reserved. | Made with <i class="fas fa-heart"></i> in Botswana</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <i class="fas fa-check-circle"></i>
+                <h3>Success!</h3>
+            </div>
+            <div class="modal-body">
+                <p id="success-message">Your action was completed successfully!</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('success-modal')" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="error-modal">
+        <div class="modal-content">
+            <div class="modal-header error">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Error</h3>
+            </div>
+            <div class="modal-body">
+                <p id="error-message">An error occurred. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('error-modal')" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Highlight active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
+        // Placeholder for feedback submission
+        function submitFeedback(event) {
+            event.preventDefault();
+            // In a real application, you would send this form data to a backend server.
+            showModal('success-modal', 'Thank you for your feedback! We appreciate your input.');
+            event.target.reset(); // Clear the form
+        }
+    </script>
+</body>
+</html>
