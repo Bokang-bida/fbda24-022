@@ -16,7 +16,7 @@ const defaultProducts = [
         price: 899.99,
         category: "clothing",
         description: "Elegant traditional Tswana dress with authentic patterns and vibrant colors. Perfect for cultural celebrations and special occasions.",
-        image: "Images/Traditional Tswana Dress.jpg",
+        image: "images/Traditional Tswana Dress.jpg",
         badge: "Traditional"
     },
     {
@@ -25,7 +25,7 @@ const defaultProducts = [
         price: 459.99,
         category: "clothing",
         description: "Stylish African print shirt featuring traditional patterns. Made from high-quality cotton for comfort and durability.",
-        image: "Images/Men's African Print Shirt.webp",
+        image: "images/Men's African Print Shirt.webp",
         badge: "Popular"
     },
     {
@@ -34,7 +34,7 @@ const defaultProducts = [
         price: 1299.99,
         category: "clothing",
         description: "Complete traditional Botswana cultural outfit with intricate beadwork and authentic designs passed down through generations.",
-        image: "Images/Botswana Cultural Outfit.jpg",
+        image: "images/Botswana Cultural Outfit.jpg",
         badge: "Premium"
     },
     {
@@ -43,7 +43,7 @@ const defaultProducts = [
         price: 1899.99,
         category: "clothing",
         description: "Exquisite traditional wedding attire featuring elaborate patterns and ceremonial significance. A masterpiece of cultural heritage.",
-        image: "Images/Traditional Wedding Attire.jpg",
+        image: "images/Traditional Wedding Attire.jpg",
         badge: "Special"
     },
     {
@@ -52,7 +52,7 @@ const defaultProducts = [
         price: 349.99,
         category: "clothing",
         description: "Beautiful African print blouse with modern cut and traditional patterns. Perfect for both casual and formal occasions.",
-        image: "Images/African Print Blouse.webp",
+        image: "images/African Print Blouse.webp",
         badge: "New"
     },
     {
@@ -61,7 +61,7 @@ const defaultProducts = [
         price: 199.99,
         category: "clothing",
         description: "Authentic traditional headwrap with matching accessories. Features beautiful African prints and premium fabric quality.",
-        image: "Images/Traditional Headwrap Set.webp",
+        image: "images/Traditional Headwrap Set.webp",
         badge: "Trending"
     },
 
@@ -72,7 +72,7 @@ const defaultProducts = [
         price: 299.99,
         category: "accessories",
         description: "Handcrafted beaded jewelry set featuring traditional African patterns. Includes necklace, earrings, and bracelet.",
-        image: "Images/African Beaded Jewelry Set.jpeg",
+        image: "images/African Beaded Jewelry Set.jpeg",
         badge: "Handmade"
     },
     {
@@ -81,7 +81,7 @@ const defaultProducts = [
         price: 399.99,
         category: "accessories",
         description: "Authentic African bag made from traditional materials. Features intricate patterns and spacious interior.",
-        image: "Images/Traditional African Bag.webp",
+        image: "images/Traditional African Bag.webp",
         badge: "Artisan"
     },
     {
@@ -90,7 +90,7 @@ const defaultProducts = [
         price: 189.99,
         category: "accessories",
         description: "Stylish sunglasses with African-inspired design elements. UV protection with fashionable frames.",
-        image: "Images/African Style Sunglasses.webp",
+        image: "images/African Style Sunglasses.webp",
         badge: "Modern"
     },
     {
@@ -99,7 +99,7 @@ const defaultProducts = [
         price: 89.99,
         category: "accessories",
         description: "Vibrant African bracelet with traditional color patterns. Adjustable size and comfortable fit.",
-        image: "Images/Colorful African Bracelet.webp",
+        image: "images/Colorful African Bracelet.webp",
         badge: "Colorful"
     },
 
@@ -110,7 +110,7 @@ const defaultProducts = [
         price: 699.99,
         category: "modern",
         description: "Modern interpretation of traditional African fashion. Combines contemporary style with cultural heritage.",
-        image: "Images/Contemporary African Dress.webp",
+        image: "images/Contemporary African Dress.webp",
         badge: "Contemporary"
     },
     {
@@ -119,7 +119,7 @@ const defaultProducts = [
         price: 899.99,
         category: "modern",
         description: "Elegant African fashion ensemble featuring modern cuts with traditional print elements. Perfect for special events.",
-        image: "Images/African Fashion Ensemble.webp",
+        image: "images/African Fashion Ensemble.webp",
         badge: "Elegant"
     },
     {
@@ -128,7 +128,7 @@ const defaultProducts = [
         price: 1199.99,
         category: "modern",
         description: "Sophisticated modern suit featuring African print accents. Professional attire with cultural flair.",
-        image: "Images/Modern African Print Suit.jpg",
+        image: "images/Modern African Print Suit.jpg",
         badge: "Professional"
     },
     {
@@ -137,7 +137,7 @@ const defaultProducts = [
         price: 459.99,
         category: "modern",
         description: "Comfortable casual wear with subtle African design elements. Perfect for everyday style with cultural touch.",
-        image: "Images/Casual African Wear.jpg",
+        image: "images/Casual African Wear.jpg",
         badge: "Casual"
     }
 ];
